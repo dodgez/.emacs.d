@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("f5f80dd6588e59cfc3ce2f11568ff8296717a938edd448a947f9823a4e282b66" default))
+   '(default))
  '(delete-by-moving-to-trash t)
  '(global-auto-revert-non-file-buffers t)
  '(indent-tabs-mode nil)

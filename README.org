@@ -311,7 +311,15 @@
 
   (use-package doom-themes
     :config
-    (load-theme 'doom-monokai-pro))
+    (load-theme 'doom-monokai-machine t)
+    (defun my/apply-theme (appearance)
+      "Load theme, taking current system APPEARANCE into consideration."
+      (mapc #'disable-theme custom-enabled-themes)
+      (pcase appearance
+        ('light (load-theme 'doom-solarized-light t))
+        ('dark (load-theme 'doom-monokai-machine t))))
+    (when (eq system-type 'darwin)
+      (add-hook 'ns-system-appearance-change-functions #'my/apply-theme)))
 #+end_src
 
 * Automatically update packages
@@ -395,6 +403,7 @@
    "h k" '(describe-key :which-key)
    "h m" '(describe-mode :which-key)
    "h o" '(describe-symbol :which-key)
+   "h t" '(load-theme :which-ket)
    "h v" '(describe-variable :which-key)
    "j" '(avy-goto-char :which-key)
    "J" '(:ignore t :which-key "jump")
