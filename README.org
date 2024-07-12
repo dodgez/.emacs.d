@@ -185,12 +185,6 @@
   (use-package git-gutter
     :config
     (global-git-gutter-mode t))
-
-  (use-package blamer
-    :config
-    (setq blamer-view 'overlay-right)
-    :hook
-    (prog-mode . blamer-mode))
 #+end_src
 
 * Languages
