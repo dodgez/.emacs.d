@@ -39,7 +39,8 @@
   :hook (org-mode . org-mode-setup)
   :custom
   (org-hide-emphasis-markers t)
-  (org-catch-invisible-edits 'show))
+  (org-catch-invisible-edits 'show)
+  (org-edit-src-content-indentation 0))
 
 (org-babel-load-file
  (expand-file-name "README.org"
