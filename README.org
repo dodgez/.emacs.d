@@ -154,6 +154,13 @@
   (which-key-idle-delay 0.3)
   :config
   (which-key-mode))
+
+(use-package evil-terminal-cursor-changer
+  :config
+  (add-hook 'tty-setup-hook #'evil-terminal-cursor-changer-activate))
+
+(use-package clipetty
+  :hook (after-init . global-clipetty-mode))
 #+end_src
 
 * Org mode
