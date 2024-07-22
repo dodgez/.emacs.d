@@ -213,22 +213,20 @@
   :commands 'json-mode
   :mode (("\\.json\\'" . json-mode)))
 
-(use-package web-mode
+(use-package js
   :custom
-  (web-mode-auto-quote-style nil)
-  (web-mode-code-indent-offset 2)
-  (web-mode-markup-indent-offset 2)
-  :mode ("\\.tsx?\\'" . web-mode))
+  (js-indent-level 2)
+  :mode (("\\.tsx?\\'" . js-mode)))
 
 (use-package prettier-js
-  :hook (web-mode . prettier-js-mode)
+  :hook (js-mode . prettier-js-mode)
   :commands (prettier-js-mode prettier-js))
 #+end_src
 
 ** LSP
 #+begin_src elisp
 (use-package lsp-mode
-  :hook (web-mode . lsp-deferred)
+  :hook (js-mode . lsp-deferred)
   :config
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\\]build\\'"))
 
@@ -240,7 +238,8 @@
 #+begin_src elisp
 (use-package tree-sitter
   :config
-  (global-tree-sitter-mode))
+  (global-tree-sitter-mode)
+  :hook (js-mode . tree-sitter-hl-mode))
 
 (use-package tree-sitter-langs
   :config
@@ -352,6 +351,7 @@
 (global-auto-revert-mode t)
 (xterm-mouse-mode)
 (set-window-scroll-bars (minibuffer-window) nil nil)
+(setq scroll-conservatively 101)
 #+end_src
 
 * Keybindings
