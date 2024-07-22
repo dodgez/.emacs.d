@@ -328,6 +328,11 @@
     (add-hook 'ns-system-appearance-change-functions #'my/apply-theme)))
 #+end_src
 
+* XKCD
+#+begin_src elisp
+(use-package xkcd)
+#+end_src
+
 * Automatically update packages
 #+begin_src elisp
 (use-package auto-package-update
@@ -457,7 +462,14 @@
  "w <right>" '(evil-window-right :which-key)
  "w s" '(evil-window-split :which-key)
  "w v" '(evil-window-vsplit :which-key)
- "x" '(scratch-buffer :which-key))
+ "x" '(:ignore t :which-key "window")
+ "x e" '(xkcd-open-explanation-browser :which-key)
+ "x k" '(xkcd-kill-buffer :which-key)
+ "x n" '(xkcd-next :which-key)
+ "x p" '(xkcd-previous :which-key)
+ "x r" '(xkcd-rand :which-key)
+ "x x" '(xkcd :which-key)
+ "X" '(scratch-buffer :which-key))
 #+end_src
 
 * Load any private (non-version-controlled) config
