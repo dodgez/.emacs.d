@@ -68,6 +68,10 @@
    :keymaps 'vertico-map
    "DEL" #'vertico-directory-delete-char))
 
+(use-package vertico-posframe
+  :config
+  (vertico-posframe-mode))
+
 (use-package savehist
   :init
   (setq savehist-additional-variables '(extended-command-history))
